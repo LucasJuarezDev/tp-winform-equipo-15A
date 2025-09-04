@@ -21,5 +21,35 @@ namespace Front
         {
 
         }
+
+        private void buscarPorNombreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_artNew_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormCargarArt formNewArt = new FormCargarArt();
+                formNewArt.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btn_ListArt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormListarArt formListar = new FormListarArt();
+                formListar.ShowDialog();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
