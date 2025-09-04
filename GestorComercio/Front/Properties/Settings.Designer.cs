@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace gestorComercio.Properties
+namespace Front.Properties
 {
 
 

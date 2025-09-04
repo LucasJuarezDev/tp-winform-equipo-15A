@@ -1,0 +1,10 @@
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\bin\Debug\Front.exe.config
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\bin\Debug\Front.exe
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\bin\Debug\Front.pdb
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\obj\Debug\Front.csproj.AssemblyReference.cache
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\obj\Debug\Front.mainForm.resources
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\obj\Debug\Front.Properties.Resources.resources
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\obj\Debug\Front.csproj.GenerateResource.cache
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\obj\Debug\Front.csproj.CoreCompileInputs.cache
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\obj\Debug\Front.exe
+C:\Users\dream\Desktop\Lucas\UTN\PROGRAMACION INGRESO Y MAS\PROGRAMACION III NOCHE\GestorComercio\Front\obj\Debug\Front.pdb
