@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|c:\\users\\usuario\\desktop\\progra3_2025\\gestorcomercio\\front\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|solutionrelative:front\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|c:\\users\\usuario\\desktop\\progra3_2025\\gestorcomercio\\front\\formnuevoarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|solutionrelative:front\\formnuevoarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|c:\\users\\usuario\\desktop\\progra3_2025\\gestorcomercio\\front\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|solutionrelative:front\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|c:\\users\\usuario\\desktop\\progra3_2025\\gestorcomercio\\front\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|solutionrelative:front\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|c:\\users\\usuario\\desktop\\progra3_2025\\gestorcomercio\\front\\formnuevoarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{059D530C-E828-447E-A602-E98E1F1F2395}|Front\\Front.csproj|solutionrelative:front\\formnuevoarticulo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 118,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormNuevoArticulo.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormNuevoArticulo.cs",
+              "RelativeDocumentMoniker": "Front\\FormNuevoArticulo.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormNuevoArticulo.cs",
+              "RelativeToolTip": "Front\\FormNuevoArticulo.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAADgvxIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T17:25:23.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\Program.cs",
+              "RelativeDocumentMoniker": "Front\\Program.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\Program.cs",
+              "RelativeToolTip": "Front\\Program.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwBIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T17:07:08.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormMenu.cs",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormMenu.cs",
+              "RelativeDocumentMoniker": "Front\\FormMenu.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormMenu.cs",
+              "RelativeToolTip": "Front\\FormMenu.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAIA2wBMAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-06T17:06:34.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormMenu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormMenu.cs",
+              "RelativeDocumentMoniker": "Front\\FormMenu.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormMenu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Front\\FormMenu.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T14:34:00.154Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormNuevoArticulo.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormNuevoArticulo.cs",
+              "RelativeDocumentMoniker": "Front\\FormNuevoArticulo.cs",
+              "ToolTip": "C:\\Users\\usuario\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormNuevoArticulo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Front\\FormNuevoArticulo.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T13:36:12.797Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

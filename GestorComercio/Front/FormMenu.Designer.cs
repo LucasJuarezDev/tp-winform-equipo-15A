@@ -1,0 +1,232 @@
+﻿namespace Front
+{
+    partial class FormMenu
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.txtFitro = new System.Windows.Forms.TextBox();
+            this.BotonFiltrar = new System.Windows.Forms.Button();
+            this.textBoxFiltroAvanzado = new System.Windows.Forms.TextBox();
+            this.labelFiltro = new System.Windows.Forms.Label();
+            this.ComboBoxCriterio = new System.Windows.Forms.ComboBox();
+            this.labelCriterio = new System.Windows.Forms.Label();
+            this.ComboBoxCampo = new System.Windows.Forms.ComboBox();
+            this.labelCampo = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnAgregar.Location = new System.Drawing.Point(26, 48);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(80, 60);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnModificar.Location = new System.Drawing.Point(26, 141);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(80, 60);
+            this.btnModificar.TabIndex = 3;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnEliminar.Location = new System.Drawing.Point(26, 242);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(80, 60);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(122, 48);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(382, 254);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(516, 48);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(148, 140);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(33, 9);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(63, 20);
+            this.lblFiltro.TabIndex = 12;
+            this.lblFiltro.Text = "Buscar:";
+            // 
+            // txtFitro
+            // 
+            this.txtFitro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFitro.Location = new System.Drawing.Point(102, 11);
+            this.txtFitro.Name = "txtFitro";
+            this.txtFitro.Size = new System.Drawing.Size(537, 20);
+            this.txtFitro.TabIndex = 13;
+            // 
+            // BotonFiltrar
+            // 
+            this.BotonFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BotonFiltrar.Location = new System.Drawing.Point(550, 336);
+            this.BotonFiltrar.Name = "BotonFiltrar";
+            this.BotonFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.BotonFiltrar.TabIndex = 42;
+            this.BotonFiltrar.Text = "Buscar";
+            this.BotonFiltrar.UseVisualStyleBackColor = true;
+            // 
+            // textBoxFiltroAvanzado
+            // 
+            this.textBoxFiltroAvanzado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxFiltroAvanzado.Location = new System.Drawing.Point(435, 339);
+            this.textBoxFiltroAvanzado.Name = "textBoxFiltroAvanzado";
+            this.textBoxFiltroAvanzado.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFiltroAvanzado.TabIndex = 41;
+            // 
+            // labelFiltro
+            // 
+            this.labelFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelFiltro.AutoSize = true;
+            this.labelFiltro.Location = new System.Drawing.Point(394, 341);
+            this.labelFiltro.Name = "labelFiltro";
+            this.labelFiltro.Size = new System.Drawing.Size(29, 13);
+            this.labelFiltro.TabIndex = 40;
+            this.labelFiltro.Text = "Filtro";
+            // 
+            // ComboBoxCriterio
+            // 
+            this.ComboBoxCriterio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ComboBoxCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxCriterio.FormattingEnabled = true;
+            this.ComboBoxCriterio.Location = new System.Drawing.Point(251, 338);
+            this.ComboBoxCriterio.Name = "ComboBoxCriterio";
+            this.ComboBoxCriterio.Size = new System.Drawing.Size(121, 21);
+            this.ComboBoxCriterio.TabIndex = 39;
+            // 
+            // labelCriterio
+            // 
+            this.labelCriterio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCriterio.AutoSize = true;
+            this.labelCriterio.Location = new System.Drawing.Point(210, 341);
+            this.labelCriterio.Name = "labelCriterio";
+            this.labelCriterio.Size = new System.Drawing.Size(39, 13);
+            this.labelCriterio.TabIndex = 38;
+            this.labelCriterio.Text = "Criterio";
+            // 
+            // ComboBoxCampo
+            // 
+            this.ComboBoxCampo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ComboBoxCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxCampo.FormattingEnabled = true;
+            this.ComboBoxCampo.Location = new System.Drawing.Point(80, 339);
+            this.ComboBoxCampo.Name = "ComboBoxCampo";
+            this.ComboBoxCampo.Size = new System.Drawing.Size(121, 21);
+            this.ComboBoxCampo.TabIndex = 37;
+            // 
+            // labelCampo
+            // 
+            this.labelCampo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelCampo.AutoSize = true;
+            this.labelCampo.Location = new System.Drawing.Point(27, 342);
+            this.labelCampo.Name = "labelCampo";
+            this.labelCampo.Size = new System.Drawing.Size(40, 13);
+            this.labelCampo.TabIndex = 36;
+            this.labelCampo.Text = "Campo";
+            // 
+            // FormMenu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(676, 371);
+            this.Controls.Add(this.BotonFiltrar);
+            this.Controls.Add(this.textBoxFiltroAvanzado);
+            this.Controls.Add(this.labelFiltro);
+            this.Controls.Add(this.ComboBoxCriterio);
+            this.Controls.Add(this.labelCriterio);
+            this.Controls.Add(this.ComboBoxCampo);
+            this.Controls.Add(this.labelCampo);
+            this.Controls.Add(this.txtFitro);
+            this.Controls.Add(this.lblFiltro);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAgregar);
+            this.MaximumSize = new System.Drawing.Size(692, 410);
+            this.MinimumSize = new System.Drawing.Size(692, 410);
+            this.Name = "FormMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Ver Articulos";
+            this.Load += new System.EventHandler(this.FormMenu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.TextBox txtFitro;
+        private System.Windows.Forms.Button BotonFiltrar;
+        private System.Windows.Forms.TextBox textBoxFiltroAvanzado;
+        private System.Windows.Forms.Label labelFiltro;
+        private System.Windows.Forms.ComboBox ComboBoxCriterio;
+        private System.Windows.Forms.Label labelCriterio;
+        private System.Windows.Forms.ComboBox ComboBoxCampo;
+        private System.Windows.Forms.Label labelCampo;
+    }
+}

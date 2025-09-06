@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Front
 {
-    public partial class FormCargarArt : Form
+    public partial class FormNuevoArticulo : Form
     {
-        public FormCargarArt()
+        public FormNuevoArticulo()
         {
             InitializeComponent();
+        }
+
+        private void FormCargarArt_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
