@@ -24,7 +24,13 @@ namespace Front
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            FormNuevoArticulo VentanaNuevoArticulo = new FormNuevoArticulo();
+            FormNuevoArticulo VentanaNuevoArticulo = new FormNuevoArticulo(1);
+            VentanaNuevoArticulo.ShowDialog();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            FormNuevoArticulo VentanaNuevoArticulo = new FormNuevoArticulo(2);
             VentanaNuevoArticulo.ShowDialog();
         }
     }

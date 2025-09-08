@@ -66,6 +66,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -202,7 +203,7 @@
             this.MaximumSize = new System.Drawing.Size(692, 410);
             this.MinimumSize = new System.Drawing.Size(692, 410);
             this.Name = "FormMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ver Articulos";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

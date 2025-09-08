@@ -12,14 +12,28 @@ namespace Front
 {
     public partial class FormNuevoArticulo : Form
     {
-        public FormNuevoArticulo()
+        public FormNuevoArticulo(int modo)
         {
             InitializeComponent();
+
+            if(modo == 1)
+            {
+                lblTitulo.Text = "Agregar nuevo artículo";
+            }
+            else
+            {
+                lblTitulo.Text = "Modificar artículo";
+            }
         }
 
         private void FormCargarArt_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BTN_Cancelar_Art_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

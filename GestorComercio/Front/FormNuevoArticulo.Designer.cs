@@ -58,16 +58,17 @@
             // 
             // BTN_Cancelar_Art
             // 
-            this.BTN_Cancelar_Art.Location = new System.Drawing.Point(204, 355);
+            this.BTN_Cancelar_Art.Location = new System.Drawing.Point(253, 355);
             this.BTN_Cancelar_Art.Name = "BTN_Cancelar_Art";
             this.BTN_Cancelar_Art.Size = new System.Drawing.Size(75, 23);
             this.BTN_Cancelar_Art.TabIndex = 6;
             this.BTN_Cancelar_Art.Text = "Cancelar";
             this.BTN_Cancelar_Art.UseVisualStyleBackColor = true;
+            this.BTN_Cancelar_Art.Click += new System.EventHandler(this.BTN_Cancelar_Art_Click);
             // 
             // BTN_Cargar_Art
             // 
-            this.BTN_Cargar_Art.Location = new System.Drawing.Point(117, 355);
+            this.BTN_Cargar_Art.Location = new System.Drawing.Point(82, 355);
             this.BTN_Cargar_Art.Name = "BTN_Cargar_Art";
             this.BTN_Cargar_Art.Size = new System.Drawing.Size(75, 23);
             this.BTN_Cargar_Art.TabIndex = 5;
@@ -79,7 +80,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblTitulo.Font = new System.Drawing.Font("Mongolian Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(54, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(98, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(282, 25);
             this.lblTitulo.TabIndex = 39;
@@ -243,7 +244,7 @@
             // 
             // pbxAgregado
             // 
-            this.pbxAgregado.Location = new System.Drawing.Point(253, 64);
+            this.pbxAgregado.Location = new System.Drawing.Point(280, 71);
             this.pbxAgregado.Name = "pbxAgregado";
             this.pbxAgregado.Size = new System.Drawing.Size(169, 172);
             this.pbxAgregado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -252,7 +253,7 @@
             // 
             // btnModificarUrlImagen
             // 
-            this.btnModificarUrlImagen.Location = new System.Drawing.Point(273, 309);
+            this.btnModificarUrlImagen.Location = new System.Drawing.Point(300, 316);
             this.btnModificarUrlImagen.Name = "btnModificarUrlImagen";
             this.btnModificarUrlImagen.Size = new System.Drawing.Size(124, 30);
             this.btnModificarUrlImagen.TabIndex = 61;
@@ -261,26 +262,26 @@
             // 
             // txtUrlImagen
             // 
-            this.txtUrlImagen.Location = new System.Drawing.Point(273, 242);
+            this.txtUrlImagen.Location = new System.Drawing.Point(300, 249);
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(124, 20);
             this.txtUrlImagen.TabIndex = 60;
             // 
             // btnNuevaImagen
             // 
-            this.btnNuevaImagen.Location = new System.Drawing.Point(273, 273);
+            this.btnNuevaImagen.Location = new System.Drawing.Point(300, 280);
             this.btnNuevaImagen.Name = "btnNuevaImagen";
             this.btnNuevaImagen.Size = new System.Drawing.Size(124, 30);
             this.btnNuevaImagen.TabIndex = 59;
             this.btnNuevaImagen.Text = "Agregar Foto";
             this.btnNuevaImagen.UseVisualStyleBackColor = true;
             // 
-            // FormCargarArt
+            // FormNuevoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(434, 375);
+            this.ClientSize = new System.Drawing.Size(456, 387);
             this.Controls.Add(this.btnModificarUrlImagen);
             this.Controls.Add(this.txtUrlImagen);
             this.Controls.Add(this.btnNuevaImagen);
@@ -307,10 +308,10 @@
             this.Controls.Add(this.BTN_Cancelar_Art);
             this.Controls.Add(this.BTN_Cargar_Art);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(450, 414);
-            this.MinimumSize = new System.Drawing.Size(450, 414);
-            this.Name = "FormCargarArt";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.MaximumSize = new System.Drawing.Size(472, 426);
+            this.MinimumSize = new System.Drawing.Size(472, 426);
+            this.Name = "FormNuevoArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FormCargarArt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxAgregado)).EndInit();

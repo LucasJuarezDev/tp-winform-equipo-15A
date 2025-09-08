@@ -13,14 +13,11 @@ C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Front.exe
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Front.pdb
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.csproj.AssemblyReference.cache
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.exe.config
-C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.mainForm.resources
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.Properties.Resources.resources
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.csproj.GenerateResource.cache
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.csproj.CoreCompileInputs.cache
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.exe
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.pdb
-C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormCargarArt.resources
-C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormListarArt.resources
 C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.csproj.AssemblyReference.cache
 C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormMenu.resources
 C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.Properties.Resources.resources
@@ -32,3 +29,5 @@ C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Front.exe.c
 C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Front.exe
 C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Front.pdb
 C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormNuevoArticulo.resources
+C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormMenu.resources
+C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormNuevoArticulo.resources
