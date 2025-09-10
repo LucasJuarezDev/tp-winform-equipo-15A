@@ -10,11 +10,10 @@ namespace Negocio
 {
     public class articuloNegocio
     {
-
+        AccesoDatos datos = new AccesoDatos();
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-            AccesoDatos datos = new AccesoDatos();
 
             try
             {
@@ -53,6 +52,30 @@ namespace Negocio
             {
                 datos.CerrarConeccion();
             }
+        }
+
+        public int ReturnID()
+        {
+            int CodigoRetorno = 0;
+            try
+            {
+                datos.SetearConsulta("SELECT ISNULL(MAX(Id), 0) + 1 AS Id FROM ARTICULOS");
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    CodigoRetorno = (int)datos.Lector["Id"];
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+            return CodigoRetorno;
         }
 
 

@@ -55,6 +55,7 @@
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -65,6 +66,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -79,8 +81,11 @@
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(122, 48);
+            this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(382, 254);
             this.dgvArticulos.TabIndex = 5;
             // 

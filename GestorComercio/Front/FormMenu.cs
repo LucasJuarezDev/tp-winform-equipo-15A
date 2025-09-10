@@ -43,10 +43,10 @@ namespace Front
                 listaArticulos = articulos.listar();
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                MessageBox.Show("Error al cargar datos...");
+                MessageBox.Show("Error al cargar datos..." + ex);
             }
             finally
             {
@@ -58,6 +58,23 @@ namespace Front
             }
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FormNuevoArticulo formNuevoArticulo = new FormNuevoArticulo("Agregar");
+            formNuevoArticulo.ShowDialog();
+        }
 
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo Seleccionado;
+            btnModificar.Enabled = false;
+            if (dgvArticulos.SelectedRows.Count > 0)
+            {
+                btnModificar.Enabled = true;
+                Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                FormNuevoArticulo formNuevoArticulo = new FormNuevoArticulo("Modificar", Seleccionado);
+                formNuevoArticulo.ShowDialog();
+            }
+        }
     }
 }

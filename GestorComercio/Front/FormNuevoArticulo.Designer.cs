@@ -64,6 +64,7 @@
             this.BTN_Cancelar_Art.TabIndex = 6;
             this.BTN_Cancelar_Art.Text = "Cancelar";
             this.BTN_Cancelar_Art.UseVisualStyleBackColor = true;
+            this.BTN_Cancelar_Art.Click += new System.EventHandler(this.BTN_Cancelar_Art_Click);
             // 
             // BTN_Cargar_Art
             // 
@@ -73,7 +74,7 @@
             this.BTN_Cargar_Art.TabIndex = 5;
             this.BTN_Cargar_Art.Text = "Cargar";
             this.BTN_Cargar_Art.UseVisualStyleBackColor = true;
-           
+            this.BTN_Cargar_Art.Click += new System.EventHandler(this.BTN_Cargar_Art_Click);
             // 
             // lblTitulo
             // 
@@ -142,9 +143,11 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(121, 20);
             this.txtPrecio.TabIndex = 50;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(117, 60);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(121, 20);
@@ -313,6 +316,7 @@
             this.Name = "FormNuevoArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.FormNuevoArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxAgregado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
