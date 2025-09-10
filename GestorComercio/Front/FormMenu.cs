@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,9 @@ namespace Front
 {
     public partial class FormMenu : Form
     {
+
+        List<Articulo> listaArticulos = new List<Articulo>();
+
         public FormMenu()
         {
             InitializeComponent();
@@ -19,19 +24,40 @@ namespace Front
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            cargarDgv();
 
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+
+
+
+        //------------------------funciones-------------------------------------
+
+        private void cargarDgv()
         {
-            FormNuevoArticulo VentanaNuevoArticulo = new FormNuevoArticulo(1);
-            VentanaNuevoArticulo.ShowDialog();
+            articuloNegocio articulos = new articuloNegocio();
+            
+
+            try
+            {
+                listaArticulos = articulos.listar();
+                
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al cargar datos...");
+            }
+            finally
+            {
+                dgvArticulos.DataSource = listaArticulos;
+                ComboBoxCampo.Items.Clear();
+                ComboBoxCampo.Items.Add("precio");
+                ComboBoxCampo.Items.Add("nombre");
+                ComboBoxCampo.Items.Add("categoría");
+            }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            FormNuevoArticulo VentanaNuevoArticulo = new FormNuevoArticulo(2);
-            VentanaNuevoArticulo.ShowDialog();
-        }
+
     }
 }

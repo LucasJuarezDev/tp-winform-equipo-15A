@@ -64,7 +64,6 @@
             this.BTN_Cancelar_Art.TabIndex = 6;
             this.BTN_Cancelar_Art.Text = "Cancelar";
             this.BTN_Cancelar_Art.UseVisualStyleBackColor = true;
-            this.BTN_Cancelar_Art.Click += new System.EventHandler(this.BTN_Cancelar_Art_Click);
             // 
             // BTN_Cargar_Art
             // 
@@ -74,6 +73,7 @@
             this.BTN_Cargar_Art.TabIndex = 5;
             this.BTN_Cargar_Art.Text = "Cargar";
             this.BTN_Cargar_Art.UseVisualStyleBackColor = true;
+           
             // 
             // lblTitulo
             // 
@@ -313,7 +313,6 @@
             this.Name = "FormNuevoArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.FormCargarArt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxAgregado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

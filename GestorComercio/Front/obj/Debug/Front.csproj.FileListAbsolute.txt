@@ -31,3 +31,8 @@ C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Front.pdb
 C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormNuevoArticulo.resources
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormMenu.resources
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FormNuevoArticulo.resources
+C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Dominio.dll
+C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Negocio.dll
+C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Dominio.pdb
+C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Negocio.pdb
+C:\Users\usuario\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.csproj.Up2Date
