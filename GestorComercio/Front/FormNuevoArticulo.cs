@@ -42,6 +42,7 @@ namespace Front
         {
             marcaNegocio marcaNegocio = new marcaNegocio();
             categoriaNegocio categoriaNegocio = new categoriaNegocio();
+            imagenNegocio imagenNegocio = new imagenNegocio();
             txtCodigo.Text = articuloNegocio.ReturnID().ToString();
 
             try
@@ -54,6 +55,9 @@ namespace Front
                     cboCategoria.DataSource = categoriaNegocio.ListarCategorias();
                     cboCategoria.ValueMember = "Id";
                     cboCategoria.DisplayMember = "Descripcion";
+                    //cmbImagenes.DataSource = imagenNegocio.ListarImagenes();
+                    //cboCategoria.ValueMember = "Id";
+                    //cboCategoria.DisplayMember = "Url";
 
                     if (Articulo != null)
                     {
