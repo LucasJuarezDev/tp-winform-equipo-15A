@@ -17,7 +17,9 @@ namespace Front
     {
         private string Tipo = "";
         private Articulo Articulo = null;
-        articuloNegocio articuloNegocio = new articuloNegocio();
+       articuloNegocio articuloNegocio = new articuloNegocio();
+
+        
 
         ///////////////////////////////////////  OTROS METODOS    ////////////////////////////////////////////
         private void cmbImagenes_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,6 +53,11 @@ namespace Front
             BTN_Cargar_Art.Text = "Modificar";
             this.Articulo = articulo;
         }
+
+        ///////////////////////////////////////  CREAR ARTICULO  ////////////////////////////////////////////
+   
+
+
 
         private void FormNuevoArticulo_Load(object sender, EventArgs e)
         {
@@ -161,10 +168,13 @@ namespace Front
 
         private void BTN_Cargar_Art_Click(object sender, EventArgs e)
         {
+            //--------------------------------------------------
             try
             {
                 if (ValidarCampos())
                 {
+                    if (Articulo == null) { Articulo = new Articulo(); }
+
                     Articulo.Codigo = txtCodigo.Text;
                     Articulo.Nombre = txtNombre.Text;
                     Articulo.Descripcion = txtDescripcion.Text;
@@ -181,7 +191,10 @@ namespace Front
                     }
                     else if(this.Tipo == "Agregar")
                     {
-                        
+
+                     articuloNegocio.Agregar(Articulo);
+                     
+
                     }
                     Close();
                 }

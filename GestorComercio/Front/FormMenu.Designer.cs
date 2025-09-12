@@ -77,6 +77,7 @@
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // dgvArticulos
             // 
@@ -117,6 +118,7 @@
             this.txtFitro.Name = "txtFitro";
             this.txtFitro.Size = new System.Drawing.Size(537, 20);
             this.txtFitro.TabIndex = 13;
+            this.txtFitro.TextChanged += new System.EventHandler(this.txtFitro_TextChanged);
             // 
             // BotonFiltrar
             // 
@@ -127,6 +129,7 @@
             this.BotonFiltrar.TabIndex = 42;
             this.BotonFiltrar.Text = "Buscar";
             this.BotonFiltrar.UseVisualStyleBackColor = true;
+            this.BotonFiltrar.Click += new System.EventHandler(this.BotonFiltrar_Click);
             // 
             // textBoxFiltroAvanzado
             // 
@@ -175,6 +178,7 @@
             this.ComboBoxCampo.Name = "ComboBoxCampo";
             this.ComboBoxCampo.Size = new System.Drawing.Size(121, 21);
             this.ComboBoxCampo.TabIndex = 37;
+            this.ComboBoxCampo.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCampo_SelectedIndexChanged);
             // 
             // labelCampo
             // 
