@@ -32,7 +32,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pcBox_Principal = new System.Windows.Forms.PictureBox();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFitro = new System.Windows.Forms.TextBox();
             this.BotonFiltrar = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.ComboBoxCampo = new System.Windows.Forms.ComboBox();
             this.labelCampo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBox_Principal)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -88,14 +88,16 @@
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(382, 254);
             this.dgvArticulos.TabIndex = 5;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
-            // pictureBox1
+            // pcBox_Principal
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(516, 48);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(148, 140);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.pcBox_Principal.Location = new System.Drawing.Point(516, 48);
+            this.pcBox_Principal.Name = "pcBox_Principal";
+            this.pcBox_Principal.Size = new System.Drawing.Size(148, 140);
+            this.pcBox_Principal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcBox_Principal.TabIndex = 6;
+            this.pcBox_Principal.TabStop = false;
             // 
             // lblFiltro
             // 
@@ -198,7 +200,7 @@
             this.Controls.Add(this.labelCampo);
             this.Controls.Add(this.txtFitro);
             this.Controls.Add(this.lblFiltro);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pcBox_Principal);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -210,7 +212,7 @@
             this.Text = "Ver Articulos";
             this.Load += new System.EventHandler(this.FormMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcBox_Principal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,7 +224,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvArticulos;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pcBox_Principal;
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtFitro;
         private System.Windows.Forms.Button BotonFiltrar;

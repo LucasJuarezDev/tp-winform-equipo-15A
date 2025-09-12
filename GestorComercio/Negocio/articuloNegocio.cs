@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Dominio;
+using Manager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Dominio;
-using Manager;
 
 namespace Negocio
 {
@@ -17,7 +18,27 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion AS MarcaDescripcion, A.IdCategoria, C.Descripcion AS CategoriaDescripcion, A.Precio from ARTICULOS A, MARCAS M, CATEGORIAS C Where A.IdMarca = M.Id and A.IdCategoria = C.Id and Precio > 0");
+                datos.SetearConsulta
+                    (
+                    "SELECT " +
+                    "A.Id, " +
+                    "A.Codigo, " +
+                    "A.Nombre, " +
+                    "A.Descripcion, " +
+                    "A.IdMarca, " +
+                    "M.Descripcion AS MarcaDescripcion, " +
+                    "A.IdCategoria, " +
+                    "CAT.Descripcion AS CategoriaDescripcion, " +
+                    "A.Precio, " +
+                    "IMG.ImagenUrl AS 'URL', " +
+                    "IMG.Id AS 'idImagen', " +
+                    "IMG.IdArticulo " +
+                    "FROM ARTICULOS A " +
+                    "INNER JOIN MARCAS M ON M.Id = A.IdMarca " +
+                    "INNER JOIN CATEGORIAS CAT ON CAT.Id = A.IdCategoria " +
+                    "INNER JOIN IMAGENES IMG ON IMG.IdArticulo = A.Id " +
+                    "WHERE A.Precio > 0"
+                    );
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
@@ -36,6 +57,11 @@ namespace Negocio
                     aux.TipoCategoria.Id = (int)datos.Lector["IdCategoria"];
                     aux.TipoCategoria.Descripcion = (string)datos.Lector["CategoriaDescripcion"];
 
+                    aux.imagenArticulo = new Imagen();
+                    aux.imagenArticulo.Id = (int)datos.Lector["idImagen"];
+                    aux.imagenArticulo.IdArticulo = (int)datos.Lector["IdArticulo"];
+                    aux.imagenArticulo.Url = (string)datos.Lector["URL"];
+
                     aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.Precio = Math.Round(aux.Precio, 2);
 
@@ -47,6 +73,74 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+
+        public void createArt(Articulo articulo)
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void ModifyArt(Articulo articulo)
+        {
+            try
+            {
+                datos.SetearConsulta
+               (
+                "UPDATE ARTICULOS " +
+                "SET  Codigo = @Codigo, " +
+                "Nombre = @Nombre, " +
+                "Descripcion = @Descripcion, " +
+                "IdMarca = @IdMarca, " +
+                "IdCategoria = @IdCategoria, " +
+                "Precio = @Precio " +
+                "WHERE Id = @Id "
+               );
+                datos.SetearParametro("@Codigo", articulo.Codigo);
+                datos.SetearParametro("@Nombre", articulo.Nombre);
+                datos.SetearParametro("@Descripcion", articulo.Descripcion);
+                datos.SetearParametro("@IdMarca", articulo.TipoMarca.Id);
+                datos.SetearParametro("@IdCategoria", articulo.TipoCategoria.Id);
+                datos.SetearParametro("@Precio", articulo.Precio);
+                datos.SetearParametro("@Id", articulo.Id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConeccion();
+            }
+        }
+        
+        public void modifyImage(Imagen imagen, int id)
+        {
+            try
+            {
+                datos.limpiarParametros();
+                datos.SetearConsulta("UPDATE IMAGENES SET ImagenUrl = @ImagenUrl WHERE IdArticulo = @IdArticulo");
+                datos.SetearParametro("@ImagenUrl", imagen.Url);
+                datos.SetearParametro("@IdArticulo", id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+                throw;
             }
             finally
             {

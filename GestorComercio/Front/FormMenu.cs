@@ -51,10 +51,21 @@ namespace Front
             finally
             {
                 dgvArticulos.DataSource = listaArticulos;
+                dgvArticulos.Columns.Remove("imagenArticulo");
                 ComboBoxCampo.Items.Clear();
                 ComboBoxCampo.Items.Add("precio");
                 ComboBoxCampo.Items.Add("nombre");
                 ComboBoxCampo.Items.Add("categoría");
+                var url = listaArticulos[0].imagenArticulo.Url;
+                try
+                {
+                    pcBox_Principal.Load(url);
+                }
+                catch (Exception)
+                {
+                    pcBox_Principal.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
+                }
+
             }
         }
 
@@ -62,6 +73,7 @@ namespace Front
         {
             FormNuevoArticulo formNuevoArticulo = new FormNuevoArticulo("Agregar");
             formNuevoArticulo.ShowDialog();
+            cargarDgv();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -74,6 +86,21 @@ namespace Front
                 Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 FormNuevoArticulo formNuevoArticulo = new FormNuevoArticulo("Modificar", Seleccionado);
                 formNuevoArticulo.ShowDialog();
+                cargarDgv();
+            }
+        }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                pcBox_Principal.Load(seleccionado.imagenArticulo.Url);
+
+            }
+            catch (Exception)
+            {
+                pcBox_Principal.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
             }
         }
     }

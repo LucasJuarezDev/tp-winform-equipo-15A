@@ -58,7 +58,10 @@ namespace Manager
             comando.Connection = conexion;
             try
             {
-                conexion.Open();
+                if (conexion.State == System.Data.ConnectionState.Closed)
+                {
+                    conexion.Open();
+                }
                 comando.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -76,6 +79,11 @@ namespace Manager
         {
             if (lector != null) { lector.Close(); }
             conexion.Close();
+        }
+
+        public void limpiarParametros()
+        {
+            comando.Parameters.Clear();
         }
     }
 }
