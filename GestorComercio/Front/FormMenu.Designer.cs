@@ -116,9 +116,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFitro.Location = new System.Drawing.Point(102, 11);
             this.txtFitro.Name = "txtFitro";
-            this.txtFitro.Size = new System.Drawing.Size(537, 20);
+            this.txtFitro.Size = new System.Drawing.Size(402, 20);
             this.txtFitro.TabIndex = 13;
             this.txtFitro.TextChanged += new System.EventHandler(this.txtFitro_TextChanged);
+            this.txtFitro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFitro_KeyPress);
             // 
             // BotonFiltrar
             // 

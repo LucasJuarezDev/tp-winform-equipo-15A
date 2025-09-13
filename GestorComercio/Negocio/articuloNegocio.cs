@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Negocio
 {
@@ -152,27 +153,6 @@ namespace Negocio
             catch (Exception ex)
             {
                 throw ex;
-            }
-        }
-
-        public void modifyImage(Imagen imagen, int id)
-        {
-            try
-            {
-                datos.limpiarParametros();
-                datos.SetearConsulta("UPDATE IMAGENES SET ImagenUrl = @ImagenUrl WHERE IdArticulo = @IdArticulo");
-                datos.SetearParametro("@ImagenUrl", imagen.Url);
-                datos.SetearParametro("@IdArticulo", id);
-
-                datos.ejecutarAccion();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                datos.CerrarConeccion();
             }
         }
 

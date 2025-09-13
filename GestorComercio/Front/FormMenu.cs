@@ -239,7 +239,33 @@ namespace Front
             if (listaFiltrada.Count != 0)
             {
                 dgvArticulos.DataSource = listaFiltrada;
-               //aca tendria que poner algo para que filtre las img tambien ya que van a ser a parte del articulo
+                dgvArticulos.Columns.Remove("imagenArticulo"); //ocultar esta columna cada vez que filtremos
+                //aca tendria que poner algo para que filtre las img tambien ya que van a ser a parte del articulo
+            }
+        }
+
+        private void txtFitro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string texto = txtFitro.Text.ToString().ToLower();
+
+            if(texto != "")
+            {
+                listaFiltrada = listaArticulos.FindAll(
+                    x => x.Nombre.ToLower().Contains(texto) ||
+                    x.Codigo.ToLower().Contains(texto) ||
+                    x.TipoMarca.Descripcion.ToLower().Contains(texto)
+                );
+            }
+            else
+            {
+                listaFiltrada = listaArticulos;
+            }
+            dgvArticulos.DataSource = null;
+            if(listaFiltrada.Count != 0)
+            {
+                dgvArticulos.DataSource = listaFiltrada;
+                dgvArticulos.Columns.Remove("imagenArticulo");
             }
         }
     }
