@@ -23,40 +23,44 @@ namespace Front
         articuloNegocio articuloNegocio = new articuloNegocio();
         imagenNegocio imagenNegocio = new imagenNegocio();
 
+        private Articulo articulo = null;
+        private List<Imagen> imagenesArt = null;
+
 
         ///////////////////////////////////////  OTROS METODOS    ////////////////////////////////////////////
         private void cmbImagenes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                string url = ((Imagen)cmbImagenes.SelectedItem).Url;
-                pbxAgregado.Load(url);
-            }
-            catch (Exception)
-            {
-                pbxAgregado.Load(this.placeHolderImage);
-            }
+               try
+               {
+                   string url = ((Imagen)cmbImagenes.SelectedItem).Url;
+                   pbxAgregado.Load(url);
+               }
+               catch (Exception)
+               {
+                   pbxAgregado.Load(this.placeHolderImage);
+               }
         }
+
         private void txtUrlImagen_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (txtUrlImagen.TextLength > 0)
-                {
-                    this.hasImageLoad = true;
-                    btnNuevaImagen.Enabled = true;
-                }
-                else
-                {
-                    this.hasImageLoad = false;
-                    btnNuevaImagen.Enabled = false;
-                }
-                pbxAgregado.Load(txtUrlImagen.Text);
-            }
-            catch (Exception)
-            {
-                pbxAgregado.Load(this.placeHolderImage);
-            }
+               try
+               {
+                   if (txtUrlImagen.TextLength > 0)
+                   {
+                       this.hasImageLoad = true;
+                       btnNuevaImagen.Enabled = true;
+                   }
+                   else
+                   {
+                       this.hasImageLoad = false;
+                       btnNuevaImagen.Enabled = false;
+                   }
+                   pbxAgregado.Load(txtUrlImagen.Text);
+               }
+               catch (Exception)
+               {
+                   pbxAgregado.Load(this.placeHolderImage);
+               }          
         }
 
         private void btnModificarUrlImagen_Click(object sender, EventArgs e)
@@ -261,12 +265,12 @@ namespace Front
                     Articulo.TipoCategoria = (Categoria)cboCategoria.SelectedItem;
                     Articulo.Precio = decimal.Parse(txtPrecio.Text);
                     //Articulo.imagenArticulo = (Imagen)cmbImagenes.SelectedItem;
-                    if(this.Tipo == "Modificar")
+                    if (this.Tipo == "Modificar")
                     {
-                    articuloNegocio.ModifyArt(Articulo);
-                    MessageBox.Show("Articulo Modificado", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        articuloNegocio.ModifyArt(Articulo);
+                        MessageBox.Show("Articulo Modificado", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    else if(this.Tipo == "Agregar")
+                    else if (this.Tipo == "Agregar")
                     {
                         articuloNegocio.Agregar(Articulo);
                         if (this.hasImageLoad)

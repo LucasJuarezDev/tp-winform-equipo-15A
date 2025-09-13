@@ -16,6 +16,7 @@ namespace Front
     {
 
         List<Articulo> listaArticulos = new List<Articulo>();
+        List<Imagen> listaImagenes = new List<Imagen>();
 
         public FormMenu()
         {
@@ -36,12 +37,14 @@ namespace Front
         private void cargarDgv()
         {
             articuloNegocio articulos = new articuloNegocio();
-            
+            imagenNegocio imagenes = new imagenNegocio();
+
 
             try
             {
                 listaArticulos = articulos.listar();
-                
+                listaImagenes = imagenes.listar();
+
             }
             catch (Exception ex)
             {
@@ -59,17 +62,35 @@ namespace Front
                 var url = listaArticulos[0].imagenArticulo.Url;
                 try
                 {
-                    pcBox_Principal.Load(url);
+                    pbxArticulo.Load(url);
                 }
                 catch (Exception)
                 {
-                    pcBox_Principal.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
+                    pbxArticulo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
                 }
 
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void cargaImagen(int IdArt)
+        {
+
+            try
+            {
+                Imagen nuevaImagen = listaImagenes.Find(x => x.IdArticulo == IdArt);
+                if (nuevaImagen != null)
+                    pbxArticulo.Load(nuevaImagen.Url);
+                else
+                    pbxArticulo.Load("https://myemotos.cl/wp-content/uploads/2024/06/sin_imagen.jpg");
+            }
+            catch (Exception)
+            {
+                pbxArticulo.Load("https://myemotos.cl/wp-content/uploads/2024/06/sin_imagen.jpg");
+
+            }
+        }
+
+            private void btnAgregar_Click(object sender, EventArgs e)
         {
             FormNuevoArticulo formNuevoArticulo = new FormNuevoArticulo("Agregar");
             formNuevoArticulo.ShowDialog();
@@ -147,11 +168,12 @@ namespace Front
             try
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                cargaImagen(seleccionado.Id);
 
             }
             catch (Exception)
             {
-                pcBox_Principal.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
+                pbxArticulo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
             }
         }
 
@@ -267,6 +289,11 @@ namespace Front
                 dgvArticulos.DataSource = listaFiltrada;
                 dgvArticulos.Columns.Remove("imagenArticulo");
             }
+        }
+
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
