@@ -30,37 +30,37 @@ namespace Front
         ///////////////////////////////////////  OTROS METODOS    ////////////////////////////////////////////
         private void cmbImagenes_SelectedIndexChanged(object sender, EventArgs e)
         {
-               try
-               {
-                   string url = ((Imagen)cmbImagenes.SelectedItem).Url;
-                   pbxAgregado.Load(url);
-               }
-               catch (Exception)
-               {
-                   pbxAgregado.Load(this.placeHolderImage);
-               }
+            try
+            {
+                string url = ((Imagen)cmbImagenes.SelectedItem).Url;
+                pbxAgregado.Load(url);
+            }
+            catch (Exception)
+            {
+                pbxAgregado.Load(this.placeHolderImage);
+            }
         }
 
         private void txtUrlImagen_TextChanged(object sender, EventArgs e)
         {
-               try
-               {
-                   if (txtUrlImagen.TextLength > 0)
-                   {
-                       this.hasImageLoad = true;
-                       btnNuevaImagen.Enabled = true;
-                   }
-                   else
-                   {
-                       this.hasImageLoad = false;
-                       btnNuevaImagen.Enabled = false;
-                   }
-                   pbxAgregado.Load(txtUrlImagen.Text);
-               }
-               catch (Exception)
-               {
-                   pbxAgregado.Load(this.placeHolderImage);
-               }          
+            try
+            {
+                if (txtUrlImagen.TextLength > 0)
+                {
+                    this.hasImageLoad = true;
+                    btnNuevaImagen.Enabled = true;
+                }
+                else
+                {
+                    this.hasImageLoad = false;
+                    btnNuevaImagen.Enabled = false;
+                }
+                pbxAgregado.Load(txtUrlImagen.Text);
+            }
+            catch (Exception)
+            {
+                pbxAgregado.Load(this.placeHolderImage);
+            }
         }
 
         private void btnModificarUrlImagen_Click(object sender, EventArgs e)
@@ -74,7 +74,6 @@ namespace Front
         {
             try
             {
-                //primera pregunta 
                 DialogResult resultSobrescribir = MessageBox.Show(
                     "¿Quieres sobreescribir la imagen?",
                     "Modificar imagen",
@@ -83,14 +82,12 @@ namespace Front
 
                 if (resultSobrescribir == DialogResult.Yes)
                 {
-                    //llamo a modifyImage
                     imagenNegocio.modifyImage(txtUrlImagen.Text, this.Articulo.Id, this.idImageToModify);
                     this.idImageToModify = 0;
                     MessageBox.Show("Imagen cambiada con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
-                    // segunda pregunta..
                     DialogResult resultNueva = MessageBox.Show(
                         "¿Quieres guardarla como nueva?",
                         "Guardar imagen",
@@ -99,11 +96,9 @@ namespace Front
 
                     if (resultNueva == DialogResult.Yes)
                     {
-                        //llamo al addImage
                         imagenNegocio.addImage(txtUrlImagen.Text, this.Articulo.Id);
                         MessageBox.Show("Imagen guardada como nueva!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-                    //si se pone todo que no, entonces no hace nada
                 }
             }
             catch (Exception)
@@ -120,7 +115,6 @@ namespace Front
             lblTitulo.Text = "Agrega tu nuevo articulo";
             BTN_Cargar_Art.Text = "Cargar";
 
-            // ocultamos la seccion imagenes en agregar
             cmbImagenes.Visible = false;
             lblcomboboxImagenes.Visible = false;
             btnModificarUrlImagen.Visible = false;
@@ -137,10 +131,6 @@ namespace Front
         }
 
         ///////////////////////////////////////  MANIPULACION DE ARTICULO  ////////////////////////////////////////////
-   
-
-
-
         private void FormNuevoArticulo_Load(object sender, EventArgs e)
         {
             marcaNegocio marcaNegocio = new marcaNegocio();
@@ -153,28 +143,36 @@ namespace Front
                 if (this.Tipo == "Modificar")
                 {
                     cboMarca.DataSource = marcaNegocio.ListarMarcas();
-                    cboMarca.ValueMember = "Id"; //     ID DE LOS OBJETOS QUE SE MUESTRAN
-                    cboMarca.DisplayMember = "Descripcion"; //     VALOR QUE SE MOSTRARA EN EL COMBOBOX
+                    cboMarca.ValueMember = "Id";
+                    cboMarca.DisplayMember = "Descripcion";
 
                     cboCategoria.DataSource = categoriaNegocio.ListarCategorias();
                     cboCategoria.ValueMember = "Id";
                     cboCategoria.DisplayMember = "Descripcion";
 
                     cmbImagenes.DataSource = imagenNegocio.listImagesById(this.Articulo.Id);
-                    cmbImagenes.ValueMember = "IdArticulo";
+                    cmbImagenes.ValueMember = "Id";
                     cmbImagenes.DisplayMember = "Url";
 
-                    manejarErrorImagen();
+                    if (cmbImagenes.Items.Count > 0)
+                    {
+                        Imagen primera = (Imagen)cmbImagenes.Items[0];
+                        pbxAgregado.Load(primera.Url);
+                    }
+                    else
+                    {
+                        pbxAgregado.Load(this.placeHolderImage);
+                    }
 
                     if (Articulo != null)
                     {
                         txtCodigo.Text = Articulo.Codigo;
                         txtNombre.Text = Articulo.Nombre;
                         txtDescripcion.Text = Articulo.Descripcion;
-                        txtPrecio.Text = Articulo.Precio.ToString(); //toString por ser flotante
+                        txtPrecio.Text = Articulo.Precio.ToString();
                         cboMarca.SelectedValue = Articulo.TipoMarca.Id;
                         cboCategoria.SelectedValue = Articulo.TipoCategoria.Id;
-                        cmbImagenes.SelectedValue = Articulo.imagenArticulo.IdArticulo;
+                        cmbImagenes.SelectedValue = Articulo.imagenArticulo.Id;
                     }
                 }
                 else if (this.Tipo == "Agregar")
@@ -187,22 +185,19 @@ namespace Front
                     cboCategoria.DisplayMember = "Descripcion";
 
                     cboMarca.DataSource = marcaNegocio.ListarMarcas();
-                    cboMarca.ValueMember = "Id"; 
+                    cboMarca.ValueMember = "Id";
                     cboMarca.DisplayMember = "Descripcion";
 
-                    manejarErrorImagen();
+                    pbxAgregado.Load(this.placeHolderImage);
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-
         ///////////////////////////////////////  VALIDACIONES  ////////////////////////////////////////////
-
         private void SoloNumeros(KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) || char.IsPunctuation(e.KeyChar))
@@ -213,16 +208,16 @@ namespace Front
 
         private bool ValidarCampos()
         {
-            if 
+            if
             (
-            txtNombre.Text != "" && txtDescripcion.Text != "" && 
-            txtPrecio.Text != "" && cboCategoria.SelectedIndex >= 0 
+            txtNombre.Text != "" && txtDescripcion.Text != "" &&
+            txtPrecio.Text != "" && cboCategoria.SelectedIndex >= 0
             && cboMarca.SelectedIndex >= 0 && cmbImagenes.SelectedIndex >= 0
             && cboCategoria.SelectedIndex != -1 && cboMarca.SelectedIndex != -1
             && cmbImagenes.SelectedIndex != -1 && txtCodigo.Text != ""
             )
             {
-              return true;
+                return true;
             }
             return false;
         }
@@ -231,19 +226,6 @@ namespace Front
             SoloNumeros(e);
         }
 
-        private void manejarErrorImagen()
-        {
-            try
-            {
-                pbxAgregado.Load(imagenNegocio.ListarImagenes()[0].Url);
-            }
-            catch (Exception)
-            {
-                pbxAgregado.Load(this.placeHolderImage);
-            }
-        }
-
-        ///////////////////////////////////  CERRAR Y CARGAR | MODIFICAR ARTICULO  ///////////////////////////////////
         private void BTN_Cancelar_Art_Click(object sender, EventArgs e)
         {
             Close();
@@ -251,7 +233,6 @@ namespace Front
 
         private void BTN_Cargar_Art_Click(object sender, EventArgs e)
         {
-            //--------------------------------------------------
             try
             {
                 if (ValidarCampos())
@@ -264,7 +245,6 @@ namespace Front
                     Articulo.TipoMarca = (Marca)cboMarca.SelectedItem;
                     Articulo.TipoCategoria = (Categoria)cboCategoria.SelectedItem;
                     Articulo.Precio = decimal.Parse(txtPrecio.Text);
-                    //Articulo.imagenArticulo = (Imagen)cmbImagenes.SelectedItem;
                     if (this.Tipo == "Modificar")
                     {
                         articuloNegocio.ModifyArt(Articulo);
@@ -277,18 +257,15 @@ namespace Front
                         {
                             string parametro = txtUrlImagen.Text.Trim();
 
-                            // Verifico si arranca con https, en caso que no, estoy tratando con algo distinto a una url
                             if (!parametro.StartsWith("https", StringComparison.OrdinalIgnoreCase))
                             {
                                 parametro = this.placeHolderImage;
                             }
-                            //MessageBox.Show("ENTRE ACA IMAGEN" + parametro + " " + articuloNegocio.ReturnID());
                             imagenNegocio.addImage(parametro, articuloNegocio.ReturnID() - 1);
                         }
                         else
                         {
                             string parametro = this.placeHolderImage;
-                            //MessageBox.Show("ENTRE ACA NULO" + parametro + " " + articuloNegocio.ReturnID());
                             imagenNegocio.addImage(parametro, articuloNegocio.ReturnID() - 1);
                         }
                         MessageBox.Show("Articulo Agregado!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
