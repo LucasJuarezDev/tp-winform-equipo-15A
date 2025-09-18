@@ -208,18 +208,105 @@ namespace Front
 
         private bool ValidarCampos()
         {
-            if
-            (
-            txtNombre.Text != "" && txtDescripcion.Text != "" &&
-            txtPrecio.Text != "" && cboCategoria.SelectedIndex >= 0
-            && cboMarca.SelectedIndex >= 0 && cmbImagenes.SelectedIndex >= 0
-            && cboCategoria.SelectedIndex != -1 && cboMarca.SelectedIndex != -1
-            && cmbImagenes.SelectedIndex != -1 && txtCodigo.Text != ""
-            )
+            bool correcto = true;
+            decimal precio;
+
+            if (!decimal.TryParse(txtPrecio.Text, out precio))
             {
-                return true;
+                lblValidacionPrecio.ForeColor = Color.Red;
+                lblValidacionPrecio.Text = "*";
+                lblValidacionPrecio.Visible = true;
+                lblValidacionPrecio.Font = new Font(lblValidacionPrecio.Font.FontFamily, 14); // el 14 es el tamaño que le puse al *
+
+                MessageBox.Show("Precio Invalido, Ingrese uno correcto");
+                correcto = false;
             }
-            return false;
+            else if (string.IsNullOrEmpty(txtPrecio.Text))
+            {
+                lblValidacionPrecio.ForeColor = Color.Red;
+                lblValidacionPrecio.Text = "*";
+                lblValidacionPrecio.Visible = true;
+                lblValidacionPrecio.Font = new Font(lblValidacionPrecio.Font.FontFamily, 14);
+
+                MessageBox.Show("El campo PRECIO debe completarse");
+                correcto = false;
+            }
+            else
+            {
+                lblValidacionPrecio.ForeColor = Color.DarkGray;
+                lblValidacionPrecio.Visible = false;
+            }
+
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                lblValidacionCodigo.ForeColor = Color.Red;
+                lblValidacionCodigo.Text = "*";
+                lblValidacionCodigo.Visible = true;
+                lblValidacionCodigo.Font = new Font(lblValidacionCodigo.Font.FontFamily, 14);
+
+                MessageBox.Show("El campo CODIGO debe completarse");
+                correcto = false;
+            }
+            else
+            {
+                lblValidacionCodigo.ForeColor = Color.DarkGray;
+                lblValidacionCodigo.Visible = false;
+            }
+
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                lblValidacionNombre.ForeColor = Color.Red;
+                lblValidacionNombre.Text = "*";
+                lblValidacionNombre.Visible = true;
+                lblValidacionNombre.Font = new Font(lblValidacionNombre.Font.FontFamily, 14);
+
+                MessageBox.Show("El campo NOMBRE debe completarse");
+                correcto = false;
+            }
+            else if (soloNumeros(txtNombre.Text))
+            {
+                lblValidacionNombre.ForeColor = Color.Red;
+                lblValidacionNombre.Text = "*";
+                lblValidacionNombre.Visible = true;
+                lblValidacionNombre.Font = new Font(lblValidacionNombre.Font.FontFamily, 14);
+
+                MessageBox.Show("Ingrese un nombre correcto que NO lleve Numeros");
+                correcto = false;
+            }
+            else
+            {
+                lblValidacionNombre.ForeColor = Color.DarkGray;
+                lblValidacionNombre.Visible = false;
+            }
+
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                lblValidacionDescripcion.ForeColor = Color.Red;
+                lblValidacionDescripcion.Text = "*";
+                lblValidacionDescripcion.Visible = true;
+                lblValidacionDescripcion.Font = new Font(lblValidacionDescripcion.Font.FontFamily, 14); // Ajusta el tamaño según sea necesario
+
+                MessageBox.Show("El campo DESCRIPCION debe completarse");
+                correcto = false;
+            }
+            else if (soloNumeros(txtDescripcion.Text))
+            {
+                lblValidacionDescripcion.ForeColor = Color.Red;
+                lblValidacionDescripcion.Text = "*";
+                lblValidacionDescripcion.Visible = true;
+                lblValidacionDescripcion.Font = new Font(lblValidacionDescripcion.Font.FontFamily, 14); // Ajusta el tamaño según sea necesario
+
+                MessageBox.Show("Ingrese una descripcion correcta que NO lleve Numeros");
+                correcto = false;
+            }
+            else
+            {
+                lblValidacionDescripcion.ForeColor = Color.DarkGray;
+                lblValidacionDescripcion.Visible = false;
+            }
+
+
+            return correcto;
         }
         private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -229,6 +316,16 @@ namespace Front
         private void BTN_Cancelar_Art_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
         }
 
         private void BTN_Cargar_Art_Click(object sender, EventArgs e)
@@ -274,7 +371,7 @@ namespace Front
                 }
                 else
                 {
-                    MessageBox.Show("Cargue Correctamente Los Campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   // MessageBox.Show("Cargue Correctamente Los Campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
