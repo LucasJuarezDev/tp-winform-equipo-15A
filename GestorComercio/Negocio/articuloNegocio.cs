@@ -21,24 +21,23 @@ namespace Negocio
             {
                 datos.SetearConsulta
                     (
-                    "SELECT " +
-                    "A.Id, " +
-                    "A.Codigo, " +
-                    "A.Nombre, " +
-                    "A.Descripcion, " +
-                    "A.IdMarca, " +
-                    "M.Descripcion AS MarcaDescripcion, " +
-                    "A.IdCategoria, " +
-                    "CAT.Descripcion AS CategoriaDescripcion, " +
-                    "A.Precio, " +
-                    "IMG.ImagenUrl AS 'URL', " +
-                    "IMG.Id AS 'idImagen', " +
-                    "IMG.IdArticulo " +
-                    "FROM ARTICULOS A " +
-                    "INNER JOIN MARCAS M ON M.Id = A.IdMarca " +
-                    "INNER JOIN CATEGORIAS CAT ON CAT.Id = A.IdCategoria " +
-                    "INNER JOIN IMAGENES IMG ON IMG.IdArticulo = A.Id " +
-                    "WHERE A.Precio > 0"
+                        "SELECT " +
+                        "A.Id, " +
+                        "A.Codigo, " +
+                        "A.Nombre, " +
+                        "A.Descripcion, " +
+                        "A.IdMarca, " +
+                        "M.Descripcion AS MarcaDescripcion, " +
+                        "A.IdCategoria, " +
+                        "CAT.Descripcion AS CategoriaDescripcion, " +
+                        "A.Precio, " +
+                        "(SELECT TOP 1 Id FROM IMAGENES WHERE IdArticulo = A.Id ORDER BY Id) AS IdImagen, " +
+                        "(SELECT TOP 1 IdArticulo FROM IMAGENES WHERE IdArticulo = A.Id ORDER BY Id) AS IdArticulo, " +
+                        "(SELECT TOP 1 ImagenUrl FROM IMAGENES WHERE IdArticulo = A.Id ORDER BY Id) AS URL " +
+                        "FROM ARTICULOS A " +
+                        "INNER JOIN MARCAS M ON M.Id = A.IdMarca " +
+                        "INNER JOIN CATEGORIAS CAT ON CAT.Id = A.IdCategoria " +
+                        "WHERE A.Precio > 0"
                     );
                 datos.EjecutarLectura();
 

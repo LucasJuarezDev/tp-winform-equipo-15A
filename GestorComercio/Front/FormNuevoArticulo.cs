@@ -49,11 +49,13 @@ namespace Front
                 {
                     this.hasImageLoad = true;
                     btnNuevaImagen.Enabled = true;
+                    btnModificarUrlImagen.Enabled = true;
                 }
                 else
                 {
                     this.hasImageLoad = false;
                     btnNuevaImagen.Enabled = false;
+                    btnModificarUrlImagen.Enabled = false;
                 }
                 pbxAgregado.Load(txtUrlImagen.Text);
             }
@@ -68,17 +70,14 @@ namespace Front
             Imagen obj = (Imagen)cmbImagenes.SelectedItem;
             this.idImageToModify = obj.Id;
             txtUrlImagen.Text = cmbImagenes.Text;
-        }
 
-        private void btnNuevaImagen_Click(object sender, EventArgs e)
-        {
             try
             {
                 DialogResult resultSobrescribir = MessageBox.Show(
-                    "¿Quieres sobreescribir la imagen?",
-                    "Modificar imagen",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                "¿Quieres sobreescribir la imagen?",
+                "Modificar imagen",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
                 if (resultSobrescribir == DialogResult.Yes)
                 {
@@ -86,19 +85,28 @@ namespace Front
                     this.idImageToModify = 0;
                     MessageBox.Show("Imagen cambiada con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                else
-                {
-                    DialogResult resultNueva = MessageBox.Show(
-                        "¿Quieres guardarla como nueva?",
-                        "Guardar imagen",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-                    if (resultNueva == DialogResult.Yes)
-                    {
-                        imagenNegocio.addImage(txtUrlImagen.Text, this.Articulo.Id);
-                        MessageBox.Show("Imagen guardada como nueva!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
+        private void btnNuevaImagen_Click(object sender, EventArgs e)
+        {
+            txtUrlImagen.Text = cmbImagenes.Text;
+            try
+            {
+                DialogResult resultNueva = MessageBox.Show(
+                    "¿Quieres guardarla como nueva?",
+                    "Guardar imagen",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (resultNueva == DialogResult.Yes)
+                {
+                    imagenNegocio.addImage(txtUrlImagen.Text, this.Articulo.Id);
+                    MessageBox.Show("Imagen guardada como nueva!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception)
@@ -136,6 +144,7 @@ namespace Front
             marcaNegocio marcaNegocio = new marcaNegocio();
             categoriaNegocio categoriaNegocio = new categoriaNegocio();
             btnNuevaImagen.Enabled = false;
+            btnModificarUrlImagen.Enabled = false;
             txtIdArt.Text = this.Tipo == "Agregar" ? articuloNegocio.ReturnID().ToString() : this.Articulo.Id.ToString();
 
             try

@@ -260,9 +260,9 @@
             // 
             // btnModificarUrlImagen
             // 
-            this.btnModificarUrlImagen.Location = new System.Drawing.Point(300, 316);
+            this.btnModificarUrlImagen.Location = new System.Drawing.Point(275, 281);
             this.btnModificarUrlImagen.Name = "btnModificarUrlImagen";
-            this.btnModificarUrlImagen.Size = new System.Drawing.Size(124, 30);
+            this.btnModificarUrlImagen.Size = new System.Drawing.Size(84, 30);
             this.btnModificarUrlImagen.TabIndex = 10;
             this.btnModificarUrlImagen.Text = "Modificar Foto";
             this.btnModificarUrlImagen.UseVisualStyleBackColor = true;
@@ -279,9 +279,9 @@
             // 
             // btnNuevaImagen
             // 
-            this.btnNuevaImagen.Location = new System.Drawing.Point(300, 280);
+            this.btnNuevaImagen.Location = new System.Drawing.Point(365, 281);
             this.btnNuevaImagen.Name = "btnNuevaImagen";
-            this.btnNuevaImagen.Size = new System.Drawing.Size(124, 30);
+            this.btnNuevaImagen.Size = new System.Drawing.Size(79, 30);
             this.btnNuevaImagen.TabIndex = 9;
             this.btnNuevaImagen.Text = "Agregar Foto";
             this.btnNuevaImagen.UseVisualStyleBackColor = true;
