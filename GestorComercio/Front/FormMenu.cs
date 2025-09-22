@@ -29,9 +29,6 @@ namespace Front
 
         }
 
-
-
-
         //------------------------funciones-------------------------------------
 
         private void cargarDgv()
@@ -90,7 +87,7 @@ namespace Front
             }
         }
 
-            private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             FormNuevoArticulo formNuevoArticulo = new FormNuevoArticulo("Agregar");
             formNuevoArticulo.ShowDialog();
@@ -99,15 +96,26 @@ namespace Front
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Articulo Seleccionado;
-            btnModificar.Enabled = false;
-            if (dgvArticulos.SelectedRows.Count > 0)
+            if (dgvArticulos.CurrentRow != null)
             {
-                btnModificar.Enabled = true;
-                Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                FormNuevoArticulo formNuevoArticulo = new FormNuevoArticulo("Modificar", Seleccionado);
-                formNuevoArticulo.ShowDialog();
-                cargarDgv();
+                Articulo articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                FormNuevoArticulo frm = new FormNuevoArticulo("Modificar", articuloSeleccionado);
+
+                frm.ImagenActualizada += (idArticulo, urlNuevaImagen) =>
+                {
+                    var art = listaArticulos.FirstOrDefault(a => a.Id == idArticulo);
+                    if (art != null)
+                        art.imagenArticulo.Url = urlNuevaImagen;
+
+                    dgvArticulos.DataSource = null;
+                    dgvArticulos.DataSource = listaArticulos;
+                };
+
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un artículo primero.");
             }
         }
 

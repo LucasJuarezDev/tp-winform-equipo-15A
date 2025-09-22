@@ -26,6 +26,8 @@ namespace Front
         private Articulo articulo = null;
         private List<Imagen> imagenesArt = null;
 
+        public event Action<int, string> ImagenActualizada;
+
 
         ///////////////////////////////////////  OTROS METODOS    ////////////////////////////////////////////
         private void cmbImagenes_SelectedIndexChanged(object sender, EventArgs e)
@@ -69,7 +71,6 @@ namespace Front
         {
             Imagen obj = (Imagen)cmbImagenes.SelectedItem;
             this.idImageToModify = obj.Id;
-            txtUrlImagen.Text = cmbImagenes.Text;
 
             try
             {
@@ -82,6 +83,7 @@ namespace Front
                 if (resultSobrescribir == DialogResult.Yes)
                 {
                     imagenNegocio.modifyImage(txtUrlImagen.Text, this.Articulo.Id, this.idImageToModify);
+                    ImagenActualizada?.Invoke(this.Articulo.Id, txtUrlImagen.Text);
                     this.idImageToModify = 0;
                     MessageBox.Show("Imagen cambiada con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
@@ -94,7 +96,6 @@ namespace Front
 
         private void btnNuevaImagen_Click(object sender, EventArgs e)
         {
-            txtUrlImagen.Text = cmbImagenes.Text;
             try
             {
                 DialogResult resultNueva = MessageBox.Show(
@@ -179,9 +180,23 @@ namespace Front
                         txtNombre.Text = Articulo.Nombre;
                         txtDescripcion.Text = Articulo.Descripcion;
                         txtPrecio.Text = Articulo.Precio.ToString();
-                        cboMarca.SelectedValue = Articulo.TipoMarca.Id;
-                        cboCategoria.SelectedValue = Articulo.TipoCategoria.Id;
-                        cmbImagenes.SelectedValue = Articulo.imagenArticulo.Id;
+
+                        if (Articulo.TipoMarca != null)
+                            cboMarca.SelectedValue = Articulo.TipoMarca.Id;
+
+                        if (Articulo.TipoCategoria != null)
+                            cboCategoria.SelectedValue = Articulo.TipoCategoria.Id;
+
+                        if (Articulo.imagenArticulo != null &&
+                            cmbImagenes.Items.Count > 0 &&
+                            cmbImagenes.Items.Cast<Imagen>().Any(i => i.Id == Articulo.imagenArticulo.Id))
+                        {
+                            cmbImagenes.SelectedValue = Articulo.imagenArticulo.Id;
+                        }
+                        else
+                        {
+                            pbxAgregado.Load(this.placeHolderImage);
+                        }
                     }
                 }
                 else if (this.Tipo == "Agregar")
@@ -200,9 +215,21 @@ namespace Front
                     pbxAgregado.Load(this.placeHolderImage);
                 }
             }
-            catch (Exception)
+            catch (System.Net.WebException)
             {
-                throw;
+                // Error de red o 404
+                pbxAgregado.Load(this.placeHolderImage);
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No se pudo cargar la información del artículo.",
+                                "Advertencia",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error inesperado: " + ex.Message);
             }
         }
 
