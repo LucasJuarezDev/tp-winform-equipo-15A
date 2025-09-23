@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Front
 {
@@ -17,6 +19,7 @@ namespace Front
 
         List<Articulo> listaArticulos = new List<Articulo>();
         List<Imagen> listaImagenes = new List<Imagen>();
+        Dictionary<int, int> imagenesSeleccionadas = new Dictionary<int, int>();
 
         public FormMenu()
         {
@@ -25,6 +28,7 @@ namespace Front
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            CargarImagenesSeleccionadas();
             cargarDgv();
 
         }
@@ -36,45 +40,68 @@ namespace Front
             articuloNegocio articulos = new articuloNegocio();
             imagenNegocio imagenes = new imagenNegocio();
 
-
             try
             {
-                listaArticulos = articulos.listar();
+                // Obtener la lista de artículos con la imagen priorizada
+                listaArticulos = articulos.listar(imagenesSeleccionadas);
                 listaImagenes = imagenes.listar();
-
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("Error al cargar datos..." + ex);
+                MessageBox.Show("Error al cargar datos..." + ex.Message);
+                return;
             }
-            finally
-            {
-                dgvArticulos.DataSource = listaArticulos;
+
+            // Configurar DataGridView
+            dgvArticulos.DataSource = null; // Primero limpiar
+            dgvArticulos.DataSource = listaArticulos;
+
+            // Quitar columna de imagen si existe
+            if (dgvArticulos.Columns.Contains("imagenArticulo"))
                 dgvArticulos.Columns.Remove("imagenArticulo");
-                ComboBoxCampo.Items.Clear();
-                ComboBoxCampo.Items.Add("precio");
-                ComboBoxCampo.Items.Add("nombre");
-                ComboBoxCampo.Items.Add("categoría");
-                var url = listaArticulos[0].imagenArticulo.Url;
+
+            // Configurar ComboBox de campos
+            ComboBoxCampo.Items.Clear();
+            ComboBoxCampo.Items.Add("precio");
+            ComboBoxCampo.Items.Add("nombre");
+            ComboBoxCampo.Items.Add("categoría");
+
+            // Cargar imagen del primer artículo, si existe
+            if (listaArticulos.Count > 0 && listaArticulos[0].imagenArticulo != null)
+            {
                 try
                 {
-                    pbxArticulo.Load(url);
+                    pbxArticulo.Load(listaArticulos[0].imagenArticulo.Url);
                 }
-                catch (Exception)
+                catch
                 {
-                    pbxArticulo.Load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxdAOY_-vITFVI-ej84s2U_ErxhOly-z3y_Q&s");
+                    pbxArticulo.Load("https://myemotos.cl/wp-content/uploads/2024/06/sin_imagen.jpg");
                 }
-
+            }
+            else
+            {
+                pbxArticulo.Load("https://myemotos.cl/wp-content/uploads/2024/06/sin_imagen.jpg");
             }
         }
 
-        private void cargaImagen(int IdArt)
+        private void cargaImagen(int IdArt, int? IdImagenSeleccionada = null)
         {
-
             try
             {
-                Imagen nuevaImagen = listaImagenes.Find(x => x.IdArticulo == IdArt);
+                // Buscar usando el Id de imagen seleccionada primero (si existe)
+                Imagen nuevaImagen;
+                if (IdImagenSeleccionada.HasValue)
+                {
+                    nuevaImagen = listaImagenes
+                        .Where(x => x.IdArticulo == IdArt)
+                        .OrderByDescending(x => x.Id == IdImagenSeleccionada.Value) // la seleccionada primero
+                        .FirstOrDefault();
+                }
+                else
+                {
+                    nuevaImagen = listaImagenes.Find(x => x.IdArticulo == IdArt);
+                }
+
                 if (nuevaImagen != null)
                     pbxArticulo.Load(nuevaImagen.Url);
                 else
@@ -83,7 +110,42 @@ namespace Front
             catch (Exception)
             {
                 pbxArticulo.Load("https://myemotos.cl/wp-content/uploads/2024/06/sin_imagen.jpg");
+            }
+        }
 
+        private void GuardarImagenesSeleccionadas()
+        {
+            try
+            {
+                string path = Path.Combine(Application.StartupPath, "imagenesSeleccionadas.json");
+                string json = JsonConvert.SerializeObject(imagenesSeleccionadas, Formatting.Indented);
+                File.WriteAllText(path, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar imágenes seleccionadas: " + ex.Message);
+            }
+        }
+
+        private void CargarImagenesSeleccionadas()
+        {
+            try
+            {
+                string path = Path.Combine(Application.StartupPath, "imagenesSeleccionadas.json");
+                if (File.Exists(path))
+                {
+                    string json = File.ReadAllText(path);
+                    imagenesSeleccionadas = JsonConvert.DeserializeObject<Dictionary<int, int>>(json);
+                }
+                else
+                {
+                    imagenesSeleccionadas = new Dictionary<int, int>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar imágenes seleccionadas: " + ex.Message);
+                imagenesSeleccionadas = new Dictionary<int, int>();
             }
         }
 
@@ -96,17 +158,17 @@ namespace Front
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            articuloNegocio articuloNegocio = new articuloNegocio();
             if (dgvArticulos.CurrentRow != null)
             {
                 Articulo articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 FormNuevoArticulo frm = new FormNuevoArticulo("Modificar", articuloSeleccionado);
 
-                frm.ImagenActualizada += (idArticulo, urlNuevaImagen) =>
+                frm.ImagenHaciaDGV += (idArticulo, idImagen) =>
                 {
-                    var art = listaArticulos.FirstOrDefault(a => a.Id == idArticulo);
-                    if (art != null)
-                        art.imagenArticulo.Url = urlNuevaImagen;
+                    imagenesSeleccionadas[idArticulo] = idImagen; 
 
+                    listaArticulos = articuloNegocio.listar(imagenesSeleccionadas);
                     dgvArticulos.DataSource = null;
                     dgvArticulos.DataSource = listaArticulos;
                 };
@@ -176,8 +238,11 @@ namespace Front
             try
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                cargaImagen(seleccionado.Id);
 
+                // Pasamos también el Id de la imagen elegida (si la hay)
+                int? idImagenSeleccionada = seleccionado.imagenArticulo?.Id;
+
+                cargaImagen(seleccionado.Id, idImagenSeleccionada);
             }
             catch (Exception)
             {
@@ -299,9 +364,9 @@ namespace Front
             }
         }
 
-        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            GuardarImagenesSeleccionadas();
         }
     }
 }

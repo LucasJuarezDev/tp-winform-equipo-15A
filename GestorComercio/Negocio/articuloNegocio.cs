@@ -13,32 +13,21 @@ namespace Negocio
     public class articuloNegocio
     {
         AccesoDatos datos = new AccesoDatos();
-        public List<Articulo> listar()
+        public List<Articulo> listar(Dictionary<int, int> imagenesSeleccionadas = null)
         {
             List<Articulo> lista = new List<Articulo>();
 
             try
             {
-                datos.SetearConsulta
-                    (
-                        "SELECT " +
-                        "A.Id, " +
-                        "A.Codigo, " +
-                        "A.Nombre, " +
-                        "A.Descripcion, " +
-                        "A.IdMarca, " +
-                        "M.Descripcion AS MarcaDescripcion, " +
-                        "A.IdCategoria, " +
-                        "CAT.Descripcion AS CategoriaDescripcion, " +
-                        "A.Precio, " +
-                        "(SELECT TOP 1 Id FROM IMAGENES WHERE IdArticulo = A.Id ORDER BY Id) AS IdImagen, " +
-                        "(SELECT TOP 1 IdArticulo FROM IMAGENES WHERE IdArticulo = A.Id ORDER BY Id) AS IdArticulo, " +
-                        "(SELECT TOP 1 ImagenUrl FROM IMAGENES WHERE IdArticulo = A.Id ORDER BY Id) AS URL " +
-                        "FROM ARTICULOS A " +
-                        "INNER JOIN MARCAS M ON M.Id = A.IdMarca " +
-                        "INNER JOIN CATEGORIAS CAT ON CAT.Id = A.IdCategoria " +
-                        "WHERE A.Precio > 0"
-                    );
+                datos.SetearConsulta(
+                    "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, " +
+                    "M.Descripcion AS MarcaDescripcion, A.IdCategoria, CAT.Descripcion AS CategoriaDescripcion, " +
+                    "A.Precio " +
+                    "FROM ARTICULOS A " +
+                    "INNER JOIN MARCAS M ON M.Id = A.IdMarca " +
+                    "INNER JOIN CATEGORIAS CAT ON CAT.Id = A.IdCategoria " +
+                    "WHERE A.Precio > 0"
+                );
                 datos.EjecutarLectura();
 
                 while (datos.Lector.Read())
@@ -48,31 +37,29 @@ namespace Negocio
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.TipoMarca = new Marca
+                    {
+                        Id = (int)datos.Lector["IdMarca"],
+                        Descripcion = (string)datos.Lector["MarcaDescripcion"]
+                    };
+                    aux.TipoCategoria = new Categoria
+                    {
+                        Id = (int)datos.Lector["IdCategoria"],
+                        Descripcion = (string)datos.Lector["CategoriaDescripcion"]
+                    };
+                    aux.Precio = Math.Round((decimal)datos.Lector["Precio"], 2);
 
-                    aux.TipoMarca = new Marca();
-                    aux.TipoMarca.Id = (int)datos.Lector["IdMarca"];
-                    aux.TipoMarca.Descripcion = (string)datos.Lector["MarcaDescripcion"];
+                    // Aquí obtenemos la imagen prioritaria si existe
+                    int? idImagenPrioritaria = null;
+                    if (imagenesSeleccionadas != null && imagenesSeleccionadas.ContainsKey(aux.Id))
+                        idImagenPrioritaria = imagenesSeleccionadas[aux.Id];
 
-                    aux.TipoCategoria = new Categoria();
-                    aux.TipoCategoria.Id = (int)datos.Lector["IdCategoria"];
-                    aux.TipoCategoria.Descripcion = (string)datos.Lector["CategoriaDescripcion"];
-
-                    aux.imagenArticulo = new Imagen();
-                    aux.imagenArticulo.Id = (int)datos.Lector["idImagen"];
-                    aux.imagenArticulo.IdArticulo = (int)datos.Lector["IdArticulo"];
-                    aux.imagenArticulo.Url = (string)datos.Lector["URL"];
-
-                    aux.Precio = (decimal)datos.Lector["Precio"];
-                    aux.Precio = Math.Round(aux.Precio, 2);
+                    aux.imagenArticulo = new imagenNegocio().getCorrectImageDGV(aux.Id, idImagenPrioritaria);
 
                     lista.Add(aux);
                 }
 
                 return lista;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
             }
             finally
             {

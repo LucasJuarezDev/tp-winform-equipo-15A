@@ -151,5 +151,55 @@ namespace Negocio
                 dataImage.CerrarConeccion();
             }
         }
+
+        public Imagen getCorrectImageDGV(int idArticulo, int? idImagenSeleccionada = null)
+        {
+            Imagen img = null;
+            try
+            {
+                dataImage.limpiarParametros();
+
+                if (idImagenSeleccionada.HasValue)
+                {
+                    // Prioriza la imagen seleccionada
+                    dataImage.SetearConsulta(
+                        "SELECT TOP 1 Id, IdArticulo, ImagenUrl " +
+                        "FROM IMAGENES " +
+                        "WHERE IdArticulo = @IdArticulo " +
+                        "ORDER BY CASE WHEN Id = @IdImagenSeleccionada THEN 0 ELSE 1 END, Id"
+                    );
+                    dataImage.SetearParametro("@IdArticulo", idArticulo);
+                    dataImage.SetearParametro("@IdImagenSeleccionada", idImagenSeleccionada.Value);
+                }
+                else
+                {
+                    // Comportamiento normal si no hay imagen prioritaria
+                    dataImage.SetearConsulta(
+                        "SELECT TOP 1 Id, IdArticulo, ImagenUrl " +
+                        "FROM IMAGENES " +
+                        "WHERE IdArticulo = @IdArticulo " +
+                        "ORDER BY Id"
+                    );
+                    dataImage.SetearParametro("@IdArticulo", idArticulo);
+                }
+
+                dataImage.EjecutarLectura();
+                if (dataImage.Lector.Read())
+                {
+                    img = new Imagen()
+                    {
+                        Id = (int)dataImage.Lector["Id"],
+                        IdArticulo = (int)dataImage.Lector["IdArticulo"],
+                        Url = (string)dataImage.Lector["ImagenUrl"]
+                    };
+                }
+
+                return img;
+            }
+            finally
+            {
+                dataImage.CerrarConeccion();
+            }
+        }
     }
 }

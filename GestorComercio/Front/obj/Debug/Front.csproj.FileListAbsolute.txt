@@ -41,3 +41,5 @@ C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Negocio.dll
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Dominio.pdb
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Negocio.pdb
 C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.csproj.Up2Date
+C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Newtonsoft.Json.dll
+C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\bin\Debug\Newtonsoft.Json.xml

@@ -28,6 +28,8 @@ namespace Front
 
         public event Action<int, string> ImagenActualizada;
 
+        public event Action<int, int> ImagenHaciaDGV;
+
 
         ///////////////////////////////////////  OTROS METODOS    ////////////////////////////////////////////
         private void cmbImagenes_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,7 +73,7 @@ namespace Front
         {
             Imagen obj = (Imagen)cmbImagenes.SelectedItem;
             this.idImageToModify = obj.Id;
-
+            //MessageBox.Show(this.idImageToModify);
             try
             {
                 DialogResult resultSobrescribir = MessageBox.Show(
@@ -219,6 +221,20 @@ namespace Front
             {
                 // Error de red o 404
                 pbxAgregado.Load(this.placeHolderImage);
+
+                if (Articulo != null)
+                {
+                    txtCodigo.Text = Articulo.Codigo;
+                    txtNombre.Text = Articulo.Nombre;
+                    txtDescripcion.Text = Articulo.Descripcion;
+                    txtPrecio.Text = Articulo.Precio.ToString();
+
+                    if (Articulo.TipoMarca != null)
+                        cboMarca.SelectedValue = Articulo.TipoMarca.Id;
+
+                    if (Articulo.TipoCategoria != null)
+                        cboCategoria.SelectedValue = Articulo.TipoCategoria.Id;
+                }
             }
             catch (NullReferenceException)
             {
@@ -380,7 +396,14 @@ namespace Front
                     Articulo.Precio = decimal.Parse(txtPrecio.Text);
                     if (this.Tipo == "Modificar")
                     {
+                        if (cmbImagenes.SelectedItem is Imagen imagenSeleccionada)
+                        {
+                            Articulo.imagenArticulo = imagenSeleccionada; 
+                        }
                         articuloNegocio.ModifyArt(Articulo);
+
+                        ImagenHaciaDGV?.Invoke(Articulo.Id, (int)cmbImagenes.SelectedValue);
+
                         MessageBox.Show("Articulo Modificado", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else if (this.Tipo == "Agregar")
