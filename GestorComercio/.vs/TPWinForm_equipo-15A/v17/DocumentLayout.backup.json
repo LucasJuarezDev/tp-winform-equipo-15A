@@ -91,8 +91,7 @@
               "RelativeToolTip": "Dominio\\Imagen.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T15:07:33.089Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T15:07:33.089Z"
             },
             {
               "$type": "Document",
@@ -104,8 +103,7 @@
               "RelativeToolTip": "Dominio\\Marca.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T15:07:32.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T15:07:32.489Z"
             },
             {
               "$type": "Document",
@@ -117,8 +115,7 @@
               "RelativeToolTip": "Dominio\\Categoria.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T15:07:31.969Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T15:07:31.969Z"
             },
             {
               "$type": "Document",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "Dominio\\Articulo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T15:07:31.194Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T15:07:31.194Z"
             },
             {
               "$type": "Document",
@@ -143,8 +139,7 @@
               "RelativeToolTip": "Negocio\\articuloNegocio.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAkwDgAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T15:01:23.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T15:01:23.041Z"
             },
             {
               "$type": "Document",
@@ -156,8 +151,7 @@
               "RelativeToolTip": "Negocio\\AccesoDatos.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAA1wB0AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T14:47:30.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T14:47:30.403Z"
             },
             {
               "$type": "Document",
@@ -180,8 +174,7 @@
               "ToolTip": "C:\\Users\\dream\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormNuevoArticulo.cs [Dise\u00F1o]",
               "RelativeToolTip": "Front\\FormNuevoArticulo.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T20:30:48.994Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-09-13T20:30:48.994Z"
             },
             {
               "$type": "Document",
@@ -193,8 +186,7 @@
               "RelativeToolTip": "Front\\FormNuevoArticulo.cs",
               "ViewState": "AgIAAIsBAAAAAAAAAAAAAJQBAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T20:31:04.044Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-13T20:31:04.044Z"
             },
             {
               "$type": "Document",
@@ -206,8 +198,7 @@
               "RelativeToolTip": "Negocio\\imagenNegocio.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAMkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T03:15:35.953Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-14T03:15:35.953Z"
             },
             {
               "$type": "Document",
@@ -217,7 +208,7 @@
               "RelativeDocumentMoniker": "Front\\FormMenu.cs",
               "ToolTip": "C:\\Users\\dream\\Desktop\\Progra3_2025\\GestorComercio\\Front\\FormMenu.cs",
               "RelativeToolTip": "Front\\FormMenu.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAkwJUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAIwJUAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-12T22:04:33.847Z",
               "EditorCaption": ""

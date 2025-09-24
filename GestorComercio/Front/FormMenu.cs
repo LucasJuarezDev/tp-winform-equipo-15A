@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace Front
 {
@@ -28,7 +28,7 @@ namespace Front
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            CargarImagenesSeleccionadas();
+            //CargarImagenesSeleccionadas();
             cargarDgv();
 
         }
@@ -113,41 +113,41 @@ namespace Front
             }
         }
 
-        private void GuardarImagenesSeleccionadas()
-        {
-            try
-            {
-                string path = Path.Combine(Application.StartupPath, "imagenesSeleccionadas.json");
-                string json = JsonConvert.SerializeObject(imagenesSeleccionadas, Formatting.Indented);
-                File.WriteAllText(path, json);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar imágenes seleccionadas: " + ex.Message);
-            }
-        }
+        //private void GuardarImagenesSeleccionadas()
+        //{
+        //    try
+        //    {
+        //        string path = Path.Combine(Application.StartupPath, "imagenesSeleccionadas.json");
+        //        string json = JsonConvert.SerializeObject(imagenesSeleccionadas, Formatting.Indented);
+        //        File.WriteAllText(path, json);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al guardar imágenes seleccionadas: " + ex.Message);
+        //    }
+        //}
 
-        private void CargarImagenesSeleccionadas()
-        {
-            try
-            {
-                string path = Path.Combine(Application.StartupPath, "imagenesSeleccionadas.json");
-                if (File.Exists(path))
-                {
-                    string json = File.ReadAllText(path);
-                    imagenesSeleccionadas = JsonConvert.DeserializeObject<Dictionary<int, int>>(json);
-                }
-                else
-                {
-                    imagenesSeleccionadas = new Dictionary<int, int>();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar imágenes seleccionadas: " + ex.Message);
-                imagenesSeleccionadas = new Dictionary<int, int>();
-            }
-        }
+        //private void CargarImagenesSeleccionadas()
+        //{
+        //    try
+        //    {
+        //        string path = Path.Combine(Application.StartupPath, "imagenesSeleccionadas.json");
+        //        if (File.Exists(path))
+        //        {
+        //            string json = File.ReadAllText(path);
+        //            imagenesSeleccionadas = JsonConvert.DeserializeObject<Dictionary<int, int>>(json);
+        //        }
+        //        else
+        //        {
+        //            imagenesSeleccionadas = new Dictionary<int, int>();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al cargar imágenes seleccionadas: " + ex.Message);
+        //        imagenesSeleccionadas = new Dictionary<int, int>();
+        //    }
+        //}
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -366,7 +366,7 @@ namespace Front
 
         private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-            GuardarImagenesSeleccionadas();
+            //GuardarImagenesSeleccionadas();
         }
     }
 }
