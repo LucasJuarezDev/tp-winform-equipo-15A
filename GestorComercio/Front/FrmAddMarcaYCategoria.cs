@@ -78,9 +78,16 @@ namespace Front
                 }
 
                 if (TablaDestino == "Marcas")
+                {
                     AgregarMarcaNueva();
+                    MessageBox.Show("Marca Agregada exitosamente", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
                 else
+                {
                     AgregarCategoriaNueva();
+                    MessageBox.Show("Categoria Agregada exitosamente", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -95,6 +102,11 @@ namespace Front
             else
                 lblTitulo.Text = "Agregamos una Categoria nueva";
 
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

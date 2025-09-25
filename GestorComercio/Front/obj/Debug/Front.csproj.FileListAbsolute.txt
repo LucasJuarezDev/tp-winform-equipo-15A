@@ -62,3 +62,4 @@ C:\Users\usuario\Desktop\tp-winform-equipo-15A\GestorComercio\Front\obj\Debug\Fr
 C:\Users\usuario\Desktop\tp-winform-equipo-15A\GestorComercio\Front\obj\Debug\Front.exe
 C:\Users\usuario\Desktop\tp-winform-equipo-15A\GestorComercio\Front\obj\Debug\Front.pdb
 C:\Users\usuario\Desktop\tp-winform-equipo-15A\GestorComercio\Front\obj\Debug\Front.FrmAddMarcaYCategoria.resources
+C:\Users\dream\Desktop\Progra3_2025\GestorComercio\Front\obj\Debug\Front.FrmAddMarcaYCategoria.resources

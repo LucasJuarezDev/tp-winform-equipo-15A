@@ -174,6 +174,7 @@ namespace Front
                 };
 
                 frm.ShowDialog();
+                cargarDgv();
             }
             else
             {
