@@ -368,5 +368,33 @@ namespace Front
         {
             //GuardarImagenesSeleccionadas();
         }
+
+        private void tsmAgregarMarca_Click(object sender, EventArgs e)
+        {
+            FrmAddMarcaYCategoria frmMarcaCategoria = new FrmAddMarcaYCategoria();
+            frmMarcaCategoria.TablaDestino = "Marcas";
+            frmMarcaCategoria.ShowDialog();
+        }
+
+        private void tsmAgregarCategoria_Click(object sender, EventArgs e)
+        {
+            FrmAddMarcaYCategoria frmMarcaCategoria = new FrmAddMarcaYCategoria();
+            frmMarcaCategoria.TablaDestino = "Categorias";
+            frmMarcaCategoria.ShowDialog();
+        }
+
+        private void tsmAgregarMarca_Click_1(object sender, EventArgs e)
+        {
+            FrmAddMarcaYCategoria frmMarcaCategoria = new FrmAddMarcaYCategoria();
+            frmMarcaCategoria.TablaDestino = "Marcas";
+            frmMarcaCategoria.ShowDialog();
+        }
+
+        private void tsmAgregarCategoria_Click_1(object sender, EventArgs e)
+        {
+            FrmAddMarcaYCategoria frmMarcaCategoria = new FrmAddMarcaYCategoria();
+            frmMarcaCategoria.TablaDestino = "Categorias";
+            frmMarcaCategoria.ShowDialog();
+        }
     }
 }

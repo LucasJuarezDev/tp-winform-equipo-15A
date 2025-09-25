@@ -42,14 +42,19 @@
             this.labelCriterio = new System.Windows.Forms.Label();
             this.ComboBoxCampo = new System.Windows.Forms.ComboBox();
             this.labelCampo = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.msArchivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAgregarMarca = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAgregarCategoria = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAgregar
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnAgregar.Location = new System.Drawing.Point(26, 48);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 68);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(80, 60);
             this.btnAgregar.TabIndex = 2;
@@ -60,7 +65,7 @@
             // btnModificar
             // 
             this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnModificar.Location = new System.Drawing.Point(26, 141);
+            this.btnModificar.Location = new System.Drawing.Point(12, 161);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(80, 60);
             this.btnModificar.TabIndex = 3;
@@ -71,7 +76,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnEliminar.Location = new System.Drawing.Point(26, 242);
+            this.btnEliminar.Location = new System.Drawing.Point(12, 262);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(80, 60);
             this.btnEliminar.TabIndex = 4;
@@ -83,7 +88,7 @@
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(122, 48);
+            this.dgvArticulos.Location = new System.Drawing.Point(109, 68);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -93,7 +98,7 @@
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(516, 48);
+            this.pbxArticulo.Location = new System.Drawing.Point(516, 68);
             this.pbxArticulo.Name = "pbxArticulo";
             this.pbxArticulo.Size = new System.Drawing.Size(148, 140);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -104,7 +109,7 @@
             // 
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(33, 9);
+            this.lblFiltro.Location = new System.Drawing.Point(20, 27);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(63, 20);
             this.lblFiltro.TabIndex = 12;
@@ -114,7 +119,7 @@
             // 
             this.txtFitro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFitro.Location = new System.Drawing.Point(102, 11);
+            this.txtFitro.Location = new System.Drawing.Point(89, 27);
             this.txtFitro.Name = "txtFitro";
             this.txtFitro.Size = new System.Drawing.Size(402, 20);
             this.txtFitro.TabIndex = 13;
@@ -191,11 +196,45 @@
             this.labelCampo.TabIndex = 36;
             this.labelCampo.Text = "Campo";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msArchivo});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(676, 24);
+            this.menuStrip1.TabIndex = 43;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // msArchivo
+            // 
+            this.msArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAgregarMarca,
+            this.tsmAgregarCategoria});
+            this.msArchivo.Name = "msArchivo";
+            this.msArchivo.Size = new System.Drawing.Size(84, 20);
+            this.msArchivo.Text = "Propiedades";
+            // 
+            // tsmAgregarMarca
+            // 
+            this.tsmAgregarMarca.Name = "tsmAgregarMarca";
+            this.tsmAgregarMarca.Size = new System.Drawing.Size(227, 22);
+            this.tsmAgregarMarca.Text = "Agregar marca de articulo";
+            this.tsmAgregarMarca.Click += new System.EventHandler(this.tsmAgregarMarca_Click_1);
+            // 
+            // tsmAgregarCategoria
+            // 
+            this.tsmAgregarCategoria.Name = "tsmAgregarCategoria";
+            this.tsmAgregarCategoria.Size = new System.Drawing.Size(227, 22);
+            this.tsmAgregarCategoria.Text = "Agregar categoria de articulo";
+            this.tsmAgregarCategoria.Click += new System.EventHandler(this.tsmAgregarCategoria_Click_1);
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 371);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.BotonFiltrar);
             this.Controls.Add(this.textBoxFiltroAvanzado);
             this.Controls.Add(this.labelFiltro);
@@ -219,6 +258,8 @@
             this.Load += new System.EventHandler(this.FormMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +281,9 @@
         private System.Windows.Forms.Label labelCriterio;
         private System.Windows.Forms.ComboBox ComboBoxCampo;
         private System.Windows.Forms.Label labelCampo;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem msArchivo;
+        private System.Windows.Forms.ToolStripMenuItem tsmAgregarMarca;
+        private System.Windows.Forms.ToolStripMenuItem tsmAgregarCategoria;
     }
 }
