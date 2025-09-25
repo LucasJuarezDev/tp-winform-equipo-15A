@@ -42,10 +42,10 @@
             this.labelCriterio = new System.Windows.Forms.Label();
             this.ComboBoxCampo = new System.Windows.Forms.ComboBox();
             this.labelCampo = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.msArchivo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAgregarMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAgregarCategoria = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -86,6 +86,7 @@
             // 
             // dgvArticulos
             // 
+            this.dgvArticulos.AllowUserToOrderColumns = true;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(109, 68);
@@ -196,16 +197,6 @@
             this.labelCampo.TabIndex = 36;
             this.labelCampo.Text = "Campo";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msArchivo});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(676, 24);
-            this.menuStrip1.TabIndex = 43;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // msArchivo
             // 
             this.msArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -229,6 +220,16 @@
             this.tsmAgregarCategoria.Text = "Agregar categoria de articulo";
             this.tsmAgregarCategoria.Click += new System.EventHandler(this.tsmAgregarCategoria_Click_1);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msArchivo});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(676, 24);
+            this.menuStrip1.TabIndex = 43;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,7 +250,9 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(692, 410);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(692, 410);
             this.Name = "FormMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -281,9 +284,9 @@
         private System.Windows.Forms.Label labelCriterio;
         private System.Windows.Forms.ComboBox ComboBoxCampo;
         private System.Windows.Forms.Label labelCampo;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem msArchivo;
         private System.Windows.Forms.ToolStripMenuItem tsmAgregarMarca;
         private System.Windows.Forms.ToolStripMenuItem tsmAgregarCategoria;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }

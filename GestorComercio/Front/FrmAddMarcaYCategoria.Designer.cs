@@ -110,7 +110,11 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNuevoNombre);
             this.Controls.Add(this.lblTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmAddMarcaYCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAddMarcaYCategoria";
             this.Load += new System.EventHandler(this.FrmAddMarcaYCategoria_Load_1);
             this.ResumeLayout(false);
